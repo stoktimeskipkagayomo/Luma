@@ -74,7 +74,7 @@ def main():
     # 2. 定义路径
     destination_dir = os.getcwd()
     update_dir = "update_temp"
-    source_dir_inner = os.path.join(update_dir, "LMArenaBridge-main")
+    source_dir_inner = os.path.join(update_dir, "LMArenaBridge-mogai-main")
     config_filename = 'config.jsonc'
     models_filename = 'models.json'
     model_endpoint_map_filename = 'model_endpoint_map.json'

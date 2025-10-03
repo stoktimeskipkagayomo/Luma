@@ -1406,6 +1406,12 @@ sequenceDiagram
 #### 1. 克隆仓库
 
 ```bash
+git clone https://github.com/zhongruichen/LMArenaBridge-mogai.git
+cd LMArenaBridge-mogai
+```
+
+**或者克隆原版仓库**：
+```bash
 git clone https://github.com/Lianues/LMArenaBridge.git
 cd LMArenaBridge
 ```
@@ -2302,6 +2308,10 @@ A: 完全支持！可以在messages中混合文本和图片：
 - **Discussions**: [原项目讨论](https://github.com/Lianues/LMArenaBridge/discussions)
 
 ### 魔改版
+
+- **GitHub**: [zhongruichen/LMArenaBridge-mogai](https://github.com/zhongruichen/LMArenaBridge-mogai)
+- **分支**: [mogai-version](https://github.com/zhongruichen/LMArenaBridge-mogai/tree/mogai-version)
+- **Issues**: [魔改版反馈](https://github.com/zhongruichen/LMArenaBridge-mogai/issues)
 
 如有关于本魔改版的问题或建议，请通过以下方式联系：
 
