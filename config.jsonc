@@ -1,0 +1,381 @@
+{
+  // ============================================================
+  // 基础配置
+  // ============================================================
+
+  // 版本号（用于程序更新检查，请不要手动修改）
+  "version": "2.7.6",
+
+  // 当前 LMArena 页面的会话 ID（通过运行 id_updater.py 可以自动更新）
+  "session_id": "c6341952-952d-4a5a-86ab-61e407667a75",
+
+  // 当前会话的最后一条消息 ID（通过运行 id_updater.py 可以自动更新）
+  "message_id": "0199a1ce-70b8-70a1-bcc3-3f04b155b850",
+
+  // ============================================================
+  // ID 更新器专用配置
+  // ============================================================
+
+  // id_updater.py 上次使用的模式（可选值: 'direct_chat' 或 'battle'）
+  "id_updater_last_mode": "direct_chat",
+
+  // id_updater.py 在 Battle 模式下要更新的目标（可选值: 'A' 或 'B'）
+  "id_updater_battle_target": "B",
+
+  // ============================================================
+  // 更新设置
+  // ============================================================
+
+  // 是否自动检查更新（启用后，程序启动时会连接到 GitHub 检查新版本）
+  "enable_auto_update": true,
+
+  // ============================================================
+  // 重试与容错设置
+  // ============================================================
+
+  // 是否启用自动重试（启用后，浏览器连接断开时新的API请求将被暂存，并在连接恢复后自动重试）
+  "enable_auto_retry": true,
+
+  // 自动重试的等待超时时间（秒）
+  // 当浏览器断开时，服务器将为每个请求等待此时长。如果超时后仍未重连，则返回503错误
+  "retry_timeout_seconds": 60,
+
+  // 空响应自动重试配置（处理LMArena负载均衡导致的空响应问题）
+  "empty_response_retry": {
+    // 是否启用空响应自动重试机制
+    "enabled": true,
+    // 最大重试次数
+    "max_retries": 5,
+    // 基础延迟时间（毫秒）
+    "base_delay_ms": 1000,
+    // 最大延迟时间（毫秒）
+    "max_delay_ms": 30000,
+    // 是否向客户端显示重试信息
+    "show_retry_info_to_client": false
+  },
+
+  // ============================================================
+  // 绕过敏感词检测设置
+  // ============================================================
+
+  // 是否启用绕过敏感词检测
+  // 在原始用户请求的对话中额外注入一个消息，以尝试绕过敏感词审查
+  // 注意：当此项为 false 时，即使 bypass_settings 中有项为 true 也不会启用绕过
+  "bypass_enabled": true,
+
+  // 细粒度绕过模式设置（可以分别控制不同类型模型的绕过行为）
+  // 注意：这些设置只有在 bypass_enabled 为 true 时才会生效
+  "bypass_settings": {
+    // 文本模型的绕过开关
+    "text": true,
+    // search模型的绕过开关（搜索模型通常不需要绕过）
+    "search": false,
+    // image模型的绕过开关（图像模型通常不需要绕过）
+    "image": false
+  },
+
+  // 绕过注入配置（定义绕过模式时注入的消息内容）
+  "bypass_injection": {
+    // 当前激活的预设名称（可选值见下方 presets）
+    "active_preset": "1",
+
+    // 预设配置列表
+    "presets": {
+      // 默认预设：注入空用户消息
+      "default": {
+        "role": "user",
+        "content": " ",
+        "participantPosition": "a"
+      },
+
+      // 思维链预设：注入思维链提示
+      "thinking": {
+        "role": "user",
+        "content": "assistant：<think>",
+        "participantPosition": "a"
+      },
+      "1": {
+        "role": "user",
+        "content": ".",
+        "participantPosition": "a"
+      },
+      "2": {
+        "role": "user",
+        "content": "*",
+        "participantPosition": "a"
+      },
+      // Assistant引导预设：使用assistant角色,部分模型不支持以assistant角色为底部
+      "assistant_guide": {
+        "role": "assistant",
+        "content": "我理解您的需求，让我来帮您。",
+        "participantPosition": "b"
+      },
+
+      // 系统提示预设：使用system角色，部分模型不支持以system角色为底部
+      "system_prompt": {
+        "role": "system",
+        "content": "请遵循用户的指令。",
+        "participantPosition": "b"
+      }
+    },
+
+    // 自定义配置（当 active_preset 指定的预设不存在时使用）
+    "custom": {
+      "role": "system",
+      "content": "<think>",
+      "participantPosition": "b"
+    }
+  },
+
+  // 智能图片附件审查绕过（专用于image模型）
+  // 当使用image模型且请求包含图片附件时，自动将文本内容分离到新请求中
+  // 使图片成为历史记录的一部分，从而绕过仅针对最新请求的审查系统
+  // 注：text模型已有绕过功能，search模型不需要（空内容会报错）
+  "image_attachment_bypass_enabled": true,
+
+  // ============================================================
+  // 图片处理设置
+  // ============================================================
+
+  // 是否自动保存LMArena生成的图片到本地
+  "save_images_locally": true,
+
+  // 本地保存格式设置（控制downloaded_images目录中保存的图片格式）
+  "local_save_format": {
+    // 是否在保存时转换格式（false时保持原始格式）
+    "enabled": false,
+    // 目标格式（支持 "png", "jpeg", "webp", "original"）
+    "format": "png",
+    // JPEG质量（仅在本地保存为JPEG时生效，范围1-100）
+    "jpeg_quality": 100
+  },
+
+  // 图片返回格式设置（控制API如何返回图片给客户端）
+  "image_return_format": {
+    // 返回模式
+    // "url": 直接返回原始URL链接
+    // "base64": 将图片下载并转换为base64返回，避免链接失效
+    "mode": "base64",
+
+    // 当 mode 为 "base64" 时的转换设置
+    "base64_conversion": {
+      "enabled": true,
+      // 目标格式（支持 "png", "jpeg", "webp", "original"）
+      "target_format": "png",
+      // JPEG质量（仅在转换为JPEG时生效，范围1-100）
+      "jpeg_quality": 100
+    }
+  },
+
+  // ============================================================
+  // 酒馆模式设置
+  // ============================================================
+
+  // 是否启用酒馆模式（专为需要完整历史记录注入的场景设计，如酒馆AI、SillyTavern等）
+  "tavern_mode_enabled": true,
+
+  // ============================================================
+  // 文件床设置
+  // ============================================================
+
+  // 是否启用文件床
+  "file_bed_enabled": true,
+
+  // 图床选择策略
+  // "random": 每次上传随机选择一个图床，失败后尝试下一个
+  // "round_robin": 按顺序轮询使用图床，确保负载均衡
+  // "failover": 固定使用列表中的第一个可用图床，失败后自动切换到下一个并固定
+  "file_bed_selection_strategy": "round_robin",
+
+  // 多图床端点配置
+  // 在此列表中配置一个或多个图床，上传时将根据上面的策略选择一个启用的图床
+  "file_bed_endpoints": [
+    {
+      "name": "ImgBB (需要API Key)",
+      "enabled": true,
+      // 在 https://api.imgbb.com/ 获取API Key
+      "url": "https://api.imgbb.com/1/upload",
+      "api_key": "98b97346b28e59ab6f1695718cf40eaa",
+      "api_key_field": "key",
+      "upload_mode": "form",
+      "form_file_field": "image",
+      "response_type": "json",
+      "json_url_key": "data.url"
+    },
+    {
+      "name": "Freeimage.host (需要API Key)",
+      "enabled": true,
+      // 在 https://freeimage.host/page/api 获取API Key
+      "url": "https://freeimage.host/api/1/upload",
+      "api_key": "6d207e02198a847aa98d0a2a901485a5",
+      "api_key_field": "key",
+      "upload_mode": "form",
+      "form_file_field": "source",
+      "response_type": "json",
+      "json_url_key": "image.url"
+    },
+    {
+      "name": "0x0.st",
+      "enabled": true,
+      "url": "https://0x0.st",
+      "api_key": "",
+      "upload_mode": "form",
+      "form_file_field": "file",
+      "response_type": "text"
+    },
+    {
+      "name": "uguu.se (无需注册)",
+      "enabled": true,
+      "url": "https://uguu.se/upload.php",
+      "upload_mode": "form",
+      "form_file_field": "files[]",
+      "response_type": "json",
+      "json_url_key": "files.0.url"
+    },
+    {
+      "name": "bashupload.com (无需注册)",
+      "enabled": true,
+      "url": "https://bashupload.com/",
+      "api_key": "",
+      "upload_mode": "form",
+      "form_file_field": "file",
+      "response_type": "text"
+    },
+    {
+      "name": "temp.sh (无需注册)",
+      "enabled": true,
+      "url": "https://temp.sh/upload",
+      "api_key": "",
+      "upload_mode": "form",
+      "form_file_field": "file",
+      "response_type": "json",
+      "json_url_key": "url"
+    }
+  ],
+
+  // ============================================================
+  // 模型映射设置
+  // ============================================================
+
+  // 当模型映射不存在时是否使用默认ID
+  // 如果设置为 true，当请求的模型在 model_endpoint_map.json 中找不到时，
+  // 将会使用 config.jsonc 中定义的全局 session_id 和 message_id
+  // 如果设置为 false，找不到映射时将返回错误
+  "use_default_ids_if_mapping_not_found": true,
+
+  // ============================================================
+  // 流式响应设置
+  // ============================================================
+
+  // 流式响应超时时间（秒）
+  // 服务器等待来自浏览器的下一个数据块的最长时间
+  // 如果您的网络连接较慢或模型响应时间很长，可以适当增加此值
+  "stream_response_timeout_seconds": 600,
+
+  // 是否强制流式刷新
+  // 启用后，每发送一个数据块后会立即刷新，确保数据即时传输给客户端
+  // 这可以解决客户端接收延迟的问题，但可能略微增加CPU使用
+  "force_stream_flush": true,
+
+  // 是否启用流式传输调试
+  // 启用后，会在控制台输出详细的流式传输时间信息，有助于诊断传输延迟问题
+  "debug_stream_timing": false,
+
+  // ============================================================
+  // 性能优化设置
+  // ============================================================
+
+  // 最大并发下载数（控制同时下载图片的最大数量，提高并发效率）
+  "max_concurrent_downloads": 50,
+
+  // 下载超时配置（秒）
+  "download_timeout": {
+    // 连接超时
+    "connect": 20,
+    // 读取超时
+    "sock_read": 30,
+    // 总超时
+    "total": 80
+  },
+
+  // 连接池配置
+  "connection_pool": {
+    // 总连接数
+    "total_limit": 200,
+    // 每个主机的连接数
+    "per_host_limit": 50,
+    // 保活超时
+    "keepalive_timeout": 30,
+    // DNS缓存时间
+    "dns_cache_ttl": 300
+  },
+
+  // 内存管理配置
+  "memory_management": {
+    // 触发GC的内存阈值（MB）
+    "gc_threshold_mb": 500,
+    // 图片缓存最大数量
+    "image_cache_max_size": 500,
+    // 缓存有效期（秒）
+    "image_cache_ttl_seconds": 3600
+  },
+
+  // ============================================================
+  // 调试设置
+  // ============================================================
+
+  // 是否在调试时显示完整URL
+  // 设置为 true 时，控制台日志中将显示完整的图片URL（不截断）
+  // 设置为 false 时，根据下面的 url_display_length 配置来截断显示
+  "debug_show_full_urls": true,
+
+  // URL显示长度（当 debug_show_full_urls 为 false 时生效）
+  // 控制台日志中URL的最大显示长度，默认200个字符通常足够显示完整的URL
+  // 如果还是看不全，可以增大这个值，或者直接设置 debug_show_full_urls 为 true
+  "url_display_length": 200,
+
+  // ============================================================
+  // LMArena 思维链适配设置
+  // ============================================================
+
+  // 是否启用lmarena思维链转换
+  // 启用后，将解析lmarena返回的ag前缀思维链内容
+  "enable_lmarena_reasoning": false,
+
+  // 思维链输出模式
+  // "openai": 转换为OpenAI兼容的reasoning格式（类似o1模型）
+  // "think_tag": 用<think></think>标签包裹思维链内容
+  "reasoning_output_mode": "openai",
+
+  // 是否在流式传输中保持思维链的流式输出特性
+  // true: 思维链内容实时流式输出
+  // false: 等待完整思维链后一次性输出
+  "preserve_streaming": true,
+
+  // 是否从历史消息中剥离思维链内容
+  // true: 当接收到包含思维链的历史消息时，自动剥离思维链部分，避免上下文冗余
+  // false: 保留历史消息中的思维链内容
+  // 注意：仅对think_tag模式有效，OpenAI模式的reasoning_content字段会被自动忽略
+  "strip_reasoning_from_history": false,
+
+  // ============================================================
+  // 自动重启设置
+  // ============================================================
+
+  // 是否启用空闲自动重启
+  // 当服务器在指定时间内（如下所设）没有收到任何 API 请求时，将自动重启
+  "enable_idle_restart": true,
+
+  // 空闲重启超时时间（秒）
+  // 服务器在"检查与更新完毕"后，若超过此时长未收到任何请求，则会重启
+  // 设置为 -1 可禁用此超时功能（即使上面开关为true）
+  "idle_restart_timeout_seconds": -1,
+
+  // ============================================================
+  // 安全设置
+  // ============================================================
+
+  // API Key（设置一个 API Key 来保护您的服务）
+  // 如果设置了此值，所有到 /v1/chat/completions 的请求都必须在 Authorization 头部中包含正确的 Bearer Token
+  "api_key": ""
+}

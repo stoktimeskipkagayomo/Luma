@@ -1,0 +1,978 @@
+{
+  "o3-xxx": [
+    {
+      "session_id": "b2096d33-2651-4802-97c1-c9b788c01c7a",
+      "message_id": "151968ec-b43f-4d0b-a655-e508156af578",
+      "mode": "direct_chat"
+    },
+    {
+      "session_id": "session_for_battle_A",
+      "message_id": "message_for_battle_A",
+      "mode": "battle",
+      "battle_target": "A"
+    },
+    {
+      "session_id": "session_for_battle_B",
+      "message_id": "message_for_battle_B",
+      "mode": "battle",
+      "battle_target": "B"
+    }
+  ],
+  "gemini-xxx": {
+      "session_id": "session_for_battle_A",
+      "message_id": "message_for_battle_A",
+      "mode": "battle",
+      "battle_target": "A"
+    },
+  "nightride-on": {
+      "session_id": "75ffb7b0-95f1-4f5e-b9c1-2c495fa79e73",
+      "message_id": "c39881da-1ac4-4946-9a53-9bf5b22519c9",
+      "mode": "battle",
+      "battle_target": "A"
+    },
+  "claude-opus-4-1-20250805-thinking-16k": {
+      "session_id": "68de1853-4cfc-43f4-bac4-e813a0b13837",
+      "message_id": "853c8d45-0a13-4413-976b-09514d5aa626",
+      "mode": "direct_chat"
+    },
+  "claude-opus-4-1-20250805": {
+      "session_id": "dba5ee57-d48d-412b-b362-dcd779d46e68",
+      "message_id": "14bd4035-c590-47d1-9338-a1d7db17f430",
+      "mode": "direct_chat"
+    },
+  "claude-opus-4-20250514": {
+      "session_id": "925e9471-f0e9-44da-aede-10a8af465e40",
+      "message_id": "57ff40b7-2429-47e3-b729-ee55e1da0a48",
+      "mode": "direct_chat"
+    },
+  "claude-opus-4-20250514-thinking-16k": {
+      "session_id": "17ba87a5-f14d-4a50-80a8-5e0c65c38ef1",
+      "message_id": "62e499d1-3474-48c7-983f-848f9f5ccf7f",
+      "mode": "direct_chat"
+    },
+  "mai-1-preview": {
+      "session_id": "3452ba8f-e879-4c18-aec0-f904bca8d1f8",
+      "message_id": "74362016-de08-4713-9c5a-4edf3de19f1a",
+      "mode": "direct_chat"
+    },
+  "catalina": {
+      "session_id": "a672c90e-ee6c-4d1d-802d-cea18ea8f22c",
+      "message_id": "d12360bc-dc52-4be3-93eb-ee439a48570e",
+      "mode": "battle",
+      "battle_target": "B"
+    },
+  "claude-sonnet-4-20250514": {
+      "session_id": "386e1a30-ef99-4374-8251-6d19f027efb8",
+      "message_id": "50b8fa8c-23a5-4567-9521-cac5dd7c9493",
+      "mode": "direct_chat"
+    },
+  "claude-3-7-sonnet-20250219": {
+      "session_id": "5860c52d-e4d1-4ee4-ae2a-f4bfcbeb63f0",
+      "message_id": "794a20f0-f08f-4310-a4df-84f06f98bd4e",
+      "mode": "direct_chat"
+    },
+  "claude-3-7-sonnet-20250219-thinking-32k": {
+      "session_id": "1226fab9-ddbb-48cd-8954-e7aa8150c87e",
+      "message_id": "b1413771-3413-4ad7-be2f-8649e709348a",
+      "mode": "direct_chat"
+    },
+  "claude-sonnet-4-20250514-thinking-32k": {
+      "session_id": "26ce0e3a-c2fe-4cf5-91a7-ce6e4240bd91",
+      "message_id": "20fa88f4-34d4-445c-ad9f-d12ca390fc28",
+      "mode": "direct_chat"
+    },
+  "claude-sonnet-4-5-20250929": {
+      "session_id": "7f180124-39a8-4d93-8aa2-fd7515c0a57a",
+      "message_id": "5e1a24ea-75f8-4109-88ac-4c2ab0535e88",
+      "mode": "direct_chat"
+    },
+  "claude-sonnet-4-5-20250929-thinking-16k": {
+      "session_id": "bdd5256a-d140-4b4c-9eb6-bf1d2ee93d8e",
+      "message_id": "92a199ae-93e7-4626-b0b3-a871a4069ced",
+      "mode": "direct_chat"
+    },
+  "claude-sonnet-4-5-20250929-thinking-32k": {
+      "session_id": "c6341952-952d-4a5a-86ab-61e407667a75",
+      "message_id": "0199a1ce-70b8-70a1-bcc3-3f04b155b850",
+      "mode": "direct_chat"
+    },
+  "gpt-5-high": {
+      "session_id": "bc3efb2d-a6de-4e4c-ae8d-661325311471",
+      "message_id": "8be9c694-ec50-42f4-a225-b139b0f645ff",
+      "mode": "direct_chat"
+    },
+  "gpt-5-high-new-system-prompt": {
+      "session_id": "2d89bd6f-dda0-4075-b849-8832161481d8",
+      "message_id": "e8d680dc-53d8-4f38-84b5-45614df398c7",
+      "mode": "direct_chat"
+    },
+  "gpt-5-nano-high": {
+      "session_id": "51cf28b1-bcf1-4444-ba6f-8d6d56785bcd",
+      "message_id": "eaad6ce9-37b7-4af7-ab8a-7347a28e35d6",
+      "mode": "direct_chat"
+    },
+  "gpt-5--mini-high": {
+      "session_id": "df49231a-4a90-4f5f-b70b-6275ed39a530",
+      "message_id": "84798458-c7f9-4b0e-b8ea-d94d15385568",
+      "mode": "direct_chat"
+    },
+  "deepseek-v3.1-thinking": {
+      "session_id": "52a3b11c-d2be-4362-9c73-bb312664e8c1",
+      "message_id": "20090beb-8565-457d-9cc8-e826ab0e3a4d",
+      "mode": "direct_chat"
+    },
+  "grok-4-0709": {
+      "session_id": "138142b6-ee63-4b20-9ae7-2129aa37ee40",
+      "message_id": "4b794182-5d1c-42d5-ada7-9779741f0d56",
+      "mode": "direct_chat"
+    },
+  "grok-3-mini-high": {
+      "session_id": "3110264a-2d0b-40f1-ad11-8a36444dc00b",
+      "message_id": "607207e8-2fed-49bd-9fa1-b5253d166447",
+      "mode": "direct_chat"
+    },
+  "grok-4-fast": {
+      "session_id": "054e0565-8c33-4abb-b821-e2eaf3e052aa",
+      "message_id": "5146c27d-ad1d-47c9-bff2-3d8df1911e1f",
+      "mode": "direct_chat"
+    },
+  "grok-4-fast-reasoning": {
+      "session_id": "48929b22-82bc-4d12-b49e-926eca9bba91",
+      "message_id": "b764a450-4394-40bc-8f04-cffec5b9b4d4",
+      "mode": "direct_chat"
+    },
+  "gpt-5-chat": {
+      "session_id": "e73aefae-2222-415f-bc71-fb9ab03f6116",
+      "message_id": "9425b659-9051-403a-918c-ebc1b8aa4652",
+      "mode": "direct_chat"
+    },
+  "gemini-2.5-pro": {
+      "session_id": "53976115-df49-4d1c-8480-fbe0fa1f073f",
+      "message_id": "20c49e0d-f7bb-42fe-8303-d99e0a23775c",
+      "mode": "direct_chat"
+    },
+  "gemini-2.5-flash-preview-09-2025": {
+      "session_id": "a863b7c2-c7a9-4f9f-b12a-b10db0bd311b",
+      "message_id": "49ed518a-da58-4327-8bec-b8a401f7c8fd",
+      "mode": "direct_chat"
+    },
+  "gemini-2.5-flash-lite-preview-09-2025": {
+      "session_id": "74a4e215-b0a4-4bb5-9370-29d06779e6cb",
+      "message_id": "af3c030a-7ecd-4967-812a-758a03cf72ab",
+      "mode": "direct_chat"
+    },
+  "o3-2025-04-16": {
+      "session_id": "e6225db3-8b95-45f9-adad-e9044ea087db",
+      "message_id": "d0a65eed-876b-40ca-ba5a-f862528273bb",
+      "mode": "direct_chat"
+    },
+  "chatgpt-4o-latest-20250326": {
+      "session_id": "61b021a3-079a-4bbf-856c-8ccf8a574eda",
+      "message_id": "55c1384d-bfc0-429e-81ae-df62b226839f",
+      "mode": "direct_chat"
+    },
+  "o4-mini-2025-04-16": {
+      "session_id": "6ac9a848-cf00-4115-acdc-2d22346a4180",
+      "message_id": "0579b9a7-ac18-4fd7-ad84-2277f64f8b41",
+      "mode": "direct_chat"
+    },
+  "glm-4.5": {
+      "session_id": "a3d89c44-ef3a-4cfa-a425-1c3ab2b378eb",
+      "message_id": "7ae007df-7669-44f2-930d-4000e3b5ac06",
+      "mode": "direct_chat"
+    },
+  "glm-4.6": {
+      "session_id": "745a3fa6-0e1c-403d-bebc-d09eb150ef54",
+      "message_id": "01999f46-4aca-733d-8af8-250f46fe35f7",
+      "mode": "direct_chat"
+    },
+  "glm-4.5v": {
+      "session_id": "ee266d69-9bf2-4afe-89af-71b3c2c500b4",
+      "message_id": "da1ab443-4694-4464-bd8d-c7ce1ffc8174",
+      "mode": "direct_chat"
+    },
+  "kimi-k2-0711-preview": {
+      "session_id": "33ece851-3776-4b68-b34f-7aa255c2925f",
+      "message_id": "999f8eeb-791a-413f-84d9-e716d269df4c",
+      "mode": "direct_chat"
+    },
+  "deepseek-v3.1": {
+      "session_id": "cab435cc-fe10-4794-a467-f57ec91d1e15",
+      "message_id": "3a61c5ab-e701-4c71-aa4c-3c05cbc9ff73",
+      "mode": "direct_chat"
+    },
+  "deepseek-v3.1-terminus": {
+      "session_id": "e2870e56-c056-41fc-a1e4-92db18216835",
+      "message_id": "89541ebf-fa1a-43ab-bbcd-0a1a3d466f50",
+      "mode": "direct_chat"
+    },
+  "deepseek-v3.1-terminus-thinking": {
+      "session_id": "9d3ffe10-45eb-4167-a7b4-d67dfc5d2eaa",
+      "message_id": "706f3f51-e706-465e-bccd-7a1fd0f4ed44",
+      "mode": "direct_chat"
+    },
+  "deepseek-v3.2-exp": {
+      "session_id": "8cd1c44b-1cc0-466c-a776-eae4729b5011",
+      "message_id": "5b126798-2758-4ef2-9eea-dc7cef99b97b",
+      "mode": "direct_chat"
+    },
+  "deepseek-v3.2-exp-thinking": {
+      "session_id": "289f2ebb-deeb-4e59-8e6d-66661a4c18d2",
+      "message_id": "22b1f407-af71-4067-b359-a211be28beb2",
+      "mode": "direct_chat"
+    },
+  "gpt-4.1-2025-04-14": {
+      "session_id": "39e81e58-ba19-4eec-a23e-6ae7a4df1cca",
+      "message_id": "4f888bf2-4754-4b04-813d-0ca630a22ea9",
+      "mode": "direct_chat"
+    },
+  "qwen-max-2025-08-15": {
+      "session_id": "1db09349-90a0-445f-9c9f-321964904620",
+      "message_id": "c0e75eb5-8241-49f5-856d-9c7f55620295",
+      "mode": "direct_chat"
+    },
+  "qwen3-max-2025-09-23": {
+      "session_id": "63cfc4ff-7904-4f17-9246-7453caafdcbf",
+      "message_id": "bc730cb2-693b-4e34-a1a6-d09669a85fd2",
+      "mode": "direct_chat"
+    },
+  "qwen-vl-max-2025-08-13": {
+      "session_id": "9943ad19-c279-4cb4-b5aa-d64c252c4b06",
+      "message_id": "d18c96de-15ab-458f-b342-3287e1bd4661",
+      "mode": "direct_chat"
+    },
+  "qwen3-vl-235b-a22b-instruct": {
+      "session_id": "5ecad3a1-261f-4545-93e2-e2375f2e0f6d",
+      "message_id": "fdbc4278-1fe3-4bea-ac23-55369c93b9b0",
+      "mode": "direct_chat"
+    },
+  "qwen3-vl-235b-a22b-thinking": {
+      "session_id": "2b201fb8-a26e-43c8-ac27-d63a71e82168",
+      "message_id": "a06809c5-c106-4912-816d-8261ed79a4b7",
+      "mode": "direct_chat"
+    },
+  "kimi-k2-0905-preview": {
+      "session_id": "7ce9f2be-94a5-4488-9e41-a7b9599525aa",
+      "message_id": "76b04d0c-b491-4932-9f3b-535b1aeeddd0",
+      "mode": "direct_chat"
+    },
+  "hunyuan-t1-vision-20250916": {
+      "session_id": "c1fc083f-afd2-426d-932a-af66fc541a07",
+      "message_id": "01999f34-c413-71db-8616-21a90708f088",
+      "mode": "direct_chat"
+    },
+  "qwen3-coder-480b-a35b-instruct": {
+      "session_id": "1f5e7b16-cac0-40e4-b842-7e016a559216",
+      "message_id": "304214fe-55d4-4e0f-a265-81d4ed0f781c",
+      "mode": "direct_chat"
+    },
+  "step-3": {
+      "session_id": "5542b4ec-cdba-4987-b489-0b6e70d6b5a8",
+      "message_id": "cdc809ff-2581-48f9-893f-5049f4a40624",
+      "mode": "direct_chat"
+    },
+  "qwen3-235b-a22b-instruct-2507": {
+      "session_id": "466a870e-1713-441e-bc56-58a2d940d87a",
+      "message_id": "55f29d03-598c-42dc-81c9-7b7948e410d1",
+      "mode": "direct_chat"
+    },
+  "qwen3-235b-a22b-no-thinking": {
+      "session_id": "21923972-e019-42f2-acfb-d4e203a9db53",
+      "message_id": "cc7e5fd5-21f1-4261-910c-413aacf27116",
+      "mode": "direct_chat"
+    },
+  "qwen3-max-preview": {
+      "session_id": "f6f26894-f435-46f6-bedd-1f6d7dc923fa",
+      "message_id": "f37b4599-5e98-4900-b450-2756a9fa8eca",
+      "mode": "direct_chat"
+    },
+    "redwood": {
+      "session_id": "4c599793-7c2e-4b48-b90c-87e555fddefe",
+      "message_id": "22a1183d-27e9-42cb-831e-df6ef691af48",
+      "mode": "battle",
+      "battle_target": "B"
+    },
+  "seedream-4-high-res-4k-direct_chat-1": {
+      "session_id": "410bf0f7-6b7b-4d73-b84f-d1f80670e176",
+      "message_id": "01999f52-073c-7e4a-ba24-a26b4ad58dd8",
+      "type": "image",
+      "mode": "direct_chat"
+    },
+  "seedream-4-high-res-fal-4k": {
+      "session_id": "22904cff-478d-4b73-bd86-c0dfcc7d5b5a",
+      "message_id": "ceeab1be-5721-401e-9da8-853ace0f9150",
+      "type": "image",
+      "mode": "direct_chat"
+    },
+  "seedream-4-high-res-4k-direct_chat-2": {
+      "session_id": "b5409217-78d8-49a6-97e3-bcccbf96c256",
+      "message_id": "ab438c52-7aef-4ee9-b1cb-678845cba52f",
+      "type": "image",
+      "mode": "direct_chat"
+    },
+  "seedream-4-high-res-4k-direct_chat-3": {
+      "session_id": "b5409217-78d8-49a6-97e3-bcccbf96c256",
+      "message_id": "ab438c52-7aef-4ee9-b1cb-678845cba52f",
+      "type": "image",
+      "mode": "direct_chat"
+    },
+  "seedream-4-high-res-4k-battle-1": {
+      "session_id": "61d85eca-914f-4cb2-9b59-b6a63316d98c",
+      "message_id": "b6582579-4b35-4c35-8092-b17b6425c033",
+      "type": "image",
+      "mode": "battle",
+      "battle_target": "A"
+    },
+  "seedream-4-high-res-4k-battle-2": [
+    {
+      "session_id": "5b3b63c4-8d7d-41b0-838e-ccf42f49003b",
+      "message_id": "3b588491-1c38-4d00-8a0f-a7ea241763f5",
+      "type": "image",
+      "mode": "battle",
+      "battle_target": "A"
+    },
+    {
+      "session_id": "480538a3-5b71-442f-a456-8db42c7d3dc3",
+      "message_id": "65f1b215-a495-40cc-968a-fe58dce955ea",
+      "type": "image",
+      "mode": "battle",
+      "battle_target": "A"
+    },
+    {
+      "session_id": "06b971b5-20d6-4aea-a14b-0f79e60d8f9f",
+      "message_id": "03a19c90-1f82-4bce-b5da-ce8ca5bf3e03",
+      "type": "image",
+      "mode": "battle",
+      "battle_target": "A"
+    }
+  ],
+  "seedream-4-high-res-4k-battle-3": {
+      "session_id": "480538a3-5b71-442f-a456-8db42c7d3dc3",
+      "message_id": "65f1b215-a495-40cc-968a-fe58dce955ea",
+      "type": "image",
+      "mode": "battle",
+      "battle_target": "A"
+    },
+  "seedream-4-high-res-4k-battle-4": {
+      "session_id": "06b971b5-20d6-4aea-a14b-0f79e60d8f9f",
+      "message_id": "03a19c90-1f82-4bce-b5da-ce8ca5bf3e03",
+      "type": "image",
+      "mode": "battle",
+      "battle_target": "A"
+    },
+  "seedream-4-high-res-4k-battle-5": {
+      "session_id": "004a1bdd-7286-4306-a665-fcf73c43f03e",
+      "message_id": "2a3a07d4-e300-42d6-a135-61a7d483d904",
+      "type": "image",
+      "mode": "battle",
+      "battle_target": "A"
+    },
+  "seedream-4-high-res-4k-battle-6": {
+      "session_id": "42f980ad-c1d7-4d09-8565-55b59152a338",
+      "message_id": "ddfc9739-e402-497a-ab75-b26ad46b655f",
+      "type": "image",
+      "mode": "battle",
+      "battle_target": "A"
+    },
+  "seedream-4-high-res-4k-battle-7": {
+      "session_id": "1e5dfa04-691c-4b0c-8711-492d2f4b9d07",
+      "message_id": "fb3b10a4-704f-4231-992b-8aa8ff1a05fd",
+      "type": "image",
+      "mode": "battle",
+      "battle_target": "A"
+    },
+  "seedream-4-high-res-4k-battle-8": {
+      "session_id": "57f5d9f6-f563-409c-960e-a1dc866f2ae3",
+      "message_id": "bf77cccc-4066-4c8e-af1e-ce604697e15f",
+      "type": "image",
+      "mode": "battle",
+      "battle_target": "A"
+    },
+  "seedream-4-high-res-4k-battle-9": {
+      "session_id": "c2a90687-63da-43c5-ab4d-f5d34c77d186",
+      "message_id": "a137b0a0-9e75-4c42-b4e5-ce0766e65db8",
+      "type": "image",
+      "mode": "battle",
+      "battle_target": "A"
+    },
+  "seedream-4-high-res-4k-battle-10": {
+      "session_id": "94d14c40-6fd3-4225-a559-bb4860acce2e",
+      "message_id": "778e0be3-13a8-4c60-a428-c024b7769ba7",
+      "type": "image",
+      "mode": "battle",
+      "battle_target": "A"
+    },
+  "seedream-4-high-res-4k-battle-11": {
+      "session_id": "632e683e-7c4e-4072-b694-1af11cd4166f",
+      "message_id": "49ca1e7d-8eae-46a1-8736-e8f9242ec787",
+      "type": "image",
+      "mode": "battle",
+      "battle_target": "A"
+    },
+  "seedream-4-high-res-4k-battle-12": {
+      "session_id": "d891ea06-92d3-4c2d-9a83-38704cff7dc8",
+      "message_id": "11247d75-a882-4b81-8909-cb2a65345e22",
+      "type": "image",
+      "mode": "battle",
+      "battle_target": "A"
+    },
+  "seedream-4-high-res-4k-battle-13": {
+      "session_id": "960a5e72-f03f-40ab-a8ce-bbaa45757f6b",
+      "message_id": "68cd119f-6031-4b36-b67b-4790015b195c",
+      "type": "image",
+      "mode": "battle",
+      "battle_target": "A"
+    },
+  "seedream-4-high-res-4k-battle-14": {
+      "session_id": "70fd1150-658c-4546-80ab-77c1690b363f",
+      "message_id": "36d96635-5ca8-447b-8b8d-d2258a1514ed",
+      "type": "image",
+      "mode": "battle",
+      "battle_target": "A"
+    },
+  "seedream-4-high-res-4k-battle-15": {
+      "session_id": "075ddbbe-7f89-406e-b8ca-b69c0948dfe9",
+      "message_id": "3aa2b812-45cd-41ac-93f8-a33f42d16a9a",
+      "type": "image",
+      "mode": "battle",
+      "battle_target": "A"
+    },
+  "seedream-4-high-res-4k-battle-16": {
+      "session_id": "a7f40464-6789-4b97-af87-f9a6d5ff4800",
+      "message_id": "f4c1b561-e6f5-41bf-9480-20b1e18e6b03",
+      "type": "image",
+      "mode": "battle",
+      "battle_target": "A"
+    },
+  "seedream-4-high-res-4k-battle-17": {
+      "session_id": "b672c4a1-7412-4301-98bf-5d10744e706f",
+      "message_id": "0b28a71a-f75e-4a48-a787-5783713fe72e",
+      "type": "image",
+      "mode": "battle",
+      "battle_target": "A"
+    },
+  "seedream-4-high-res-4k-battle-18": {
+      "session_id": "8d7566d4-34d8-484d-8467-4d9806f2955e",
+      "message_id": "4ab300fb-4225-44fd-87a8-531db25203d7",
+      "type": "image",
+      "mode": "battle",
+      "battle_target": "A"
+    },
+  "seedream-4-high-res-4k-battle-19": {
+      "session_id": "d89ed9d5-bfac-43b3-a7fc-b465c76fa435",
+      "message_id": "66775d3f-7cd0-44cb-b546-3dc0cbd5208d",
+      "type": "image",
+      "mode": "battle",
+      "battle_target": "A"
+    },
+  "seedream-4-high-res-4k-battle-20": {
+      "session_id": "a350742e-1942-43b8-9bd3-1b24aef47b42",
+      "message_id": "c04cf818-556f-42d4-be51-a20cd75057bc",
+      "type": "image",
+      "mode": "battle",
+      "battle_target": "A"
+    },"seedream-4-high-res-4k-battle-21": {
+      "session_id": "198cead0-4fa1-427a-bfd2-4fc38d1ccf1c",
+      "message_id": "ea395d7e-bc89-4fdf-bf1a-eb69c4183579",
+      "type": "image",
+      "mode": "battle",
+      "battle_target": "A"
+    },
+  "seedream-4-high-res-4k-battle-22": {
+      "session_id": "ea77c55e-b8df-4613-8052-46d60b66e62a",
+      "message_id": "377eb2b0-f55a-4317-bf93-3c95df4c49fb",
+      "type": "image",
+      "mode": "battle",
+      "battle_target": "A"
+    },
+  "seedream-4-high-res-4k-battle-23": {
+      "session_id": "48ac48fd-f562-4c14-963d-991edfd3632e",
+      "message_id": "263584f1-1a9d-470c-91f1-19d5e9627ebe",
+      "type": "image",
+      "mode": "battle",
+      "battle_target": "A"
+    },
+  "seedream-4-high-res-4k-battle-24": {
+      "session_id": "f08bf6b3-c7b4-40a6-ba00-c528fd5f7e4e",
+      "message_id": "d3957892-ea13-44dc-9c60-0668d06ed871",
+      "type": "image",
+      "mode": "battle",
+      "battle_target": "A"
+    },
+  "seedream-4-high-res-4k-battle-25": {
+      "session_id": "84206f84-41ea-43ec-bc09-f8a13fc5593f",
+      "message_id": "4d4f5754-5b57-4899-855a-3ab5653d074a",
+      "type": "image",
+      "mode": "battle",
+      "battle_target": "A"
+    },
+  "seedream-4-high-res-4k-battle-26": {
+      "session_id": "3e0fb7bc-a792-4b5d-bee5-6cf5dd99b8a4",
+      "message_id": "5cc7c0cd-f791-4ab5-ae9c-40f21c2d1d2a",
+      "type": "image",
+      "mode": "battle",
+      "battle_target": "A"
+    },
+  "seedream-4-high-res-4k-battle-27": {
+      "session_id": "2c0f6677-0297-436c-b33e-01860efbfef1",
+      "message_id": "1a95621f-b8f5-4cda-af24-b5a764c8d82d",
+      "type": "image",
+      "mode": "battle",
+      "battle_target": "A"
+    },
+  "seedream-4-high-res-4k-battle-28": {
+      "session_id": "5a937665-c025-487e-809f-6cf67fa6ce4f",
+      "message_id": "cf860062-ec0f-43e6-b711-933452febaf6",
+      "type": "image",
+      "mode": "battle",
+      "battle_target": "A"
+    },
+  "seedream-4-high-res-4k-battle-29": {
+      "session_id": "26d2cd96-a48f-4722-aa89-672c01af80fe",
+      "message_id": "b2a6b9b1-b7d3-4d45-bc96-7f3c73ad0fe7",
+      "type": "image",
+      "mode": "battle",
+      "battle_target": "A"
+    },
+  "seedream-4-high-res-4k-battle-30": {
+      "session_id": "43f04187-ce89-490a-a5b7-6ac13a2f3c13",
+      "message_id": "a283f7ed-62a9-430c-85c1-a24b35422f6a",
+      "type": "image",
+      "mode": "battle",
+      "battle_target": "A"
+    },
+  "seedream-4-high-res-4k-battle-31": {
+      "session_id": "43b815bc-3b32-4742-951f-2d0ebf516d05",
+      "message_id": "748ffd02-35a5-4e2a-8814-a1f7db5677d1",
+      "type": "image",
+      "mode": "battle",
+      "battle_target": "A"
+    },
+  "seedream-4-high-res-4k-battle-32": {
+      "session_id": "fa768e81-d7d7-49fe-aeb3-75773238dbc7",
+      "message_id": "a85257a5-6932-4d33-a321-461641ba4497",
+      "type": "image",
+      "mode": "battle",
+      "battle_target": "A"
+    },
+  "seedream-4-high-res-4k-battle-33": {
+      "session_id": "2bb968d6-0758-440c-b3f3-4d24be4181b5",
+      "message_id": "98277b82-0586-433c-a22f-5648c73de3a0",
+      "type": "image",
+      "mode": "battle",
+      "battle_target": "A"
+    },
+  "seedream-4-high-res-4k-battle-34": {
+      "session_id": "a53d6bf1-f9c0-4419-9c06-b8f6528eeeb0",
+      "message_id": "1abe9aa9-e3b0-415a-9ded-14da0e8e6798",
+      "type": "image",
+      "mode": "battle",
+      "battle_target": "A"
+    },
+  "seedream-4-high-res-4k-battle-35": {
+      "session_id": "e9f5c76e-7205-4b90-8089-adfcafe91f93",
+      "message_id": "b1f65fad-1814-4c9e-a6b5-b874a905ca02",
+      "type": "image",
+      "mode": "battle",
+      "battle_target": "A"
+    },
+  "seedream-4-high-res-4k-battle-36": {
+      "session_id": "7f571795-8d75-4c99-8a5b-727fe49d7c34",
+      "message_id": "deec903e-e013-46da-b471-9f47f64b1d27",
+      "type": "image",
+      "mode": "battle",
+      "battle_target": "A"
+    },
+  "seedream-4-high-res-4k-battle-37": {
+      "session_id": "2bb968d6-0758-440c-b3f3-4d24be4181b5",
+      "message_id": "98277b82-0586-433c-a22f-5648c73de3a0",
+      "type": "image",
+      "mode": "battle",
+      "battle_target": "A"
+    },
+  "seedream-4-high-res-4k-battle-38": {
+      "session_id": "2bb968d6-0758-440c-b3f3-4d24be4181b5",
+      "message_id": "98277b82-0586-433c-a22f-5648c73de3a0",
+      "type": "image",
+      "mode": "battle",
+      "battle_target": "A"
+    },
+  "seedream-4-high-res-4k-battle-39": {
+      "session_id": "ab729bee-31fe-417e-987e-39400b5b0611",
+      "message_id": "f640ea4b-63e0-4490-a36f-195ebe287a98",
+      "type": "image",
+      "mode": "battle",
+      "battle_target": "A"
+    },
+  "seedream-4-1k-battle-1": {
+      "session_id": "43f04187-ce89-490a-a5b7-6ac13a2f3c13",
+      "message_id": "254f4873-baa7-4952-b22e-da5fa6c09535",
+      "type": "image",
+      "mode": "battle",
+      "battle_target": "B"
+    },
+  "seedream-4-1k-battle-2": {
+      "session_id": "fa768e81-d7d7-49fe-aeb3-75773238dbc7",
+      "message_id": "7fb1d5f0-8db7-4bf3-9cd3-684a45049020",
+      "type": "image",
+      "mode": "battle",
+      "battle_target": "B"
+    },
+  "seedream-4-1k-battle-3": {
+      "session_id": "26d2cd96-a48f-4722-aa89-672c01af80fe",
+      "message_id": "cf6c6925-26b4-44e8-8071-231d4fb5d799",
+      "type": "image",
+      "mode": "battle",
+      "battle_target": "B"
+    },
+  "seedream-4-1k-battle-4": {
+      "session_id": "b5084616-8b68-446c-a83c-6dd31f74fc5b",
+      "message_id": "e533edfc-20f1-46b2-b2a9-d851dc09585b",
+      "type": "image",
+      "mode": "battle",
+      "battle_target": "A"
+    },
+  "seedream-4-1k-battle-5": {
+      "session_id": "644570f7-5e95-4abb-ad5a-1c20aa582584",
+      "message_id": "acf7eb72-0878-49f9-a1d9-496adb521b11",
+      "type": "image",
+      "mode": "battle",
+      "battle_target": "B"
+    },
+  "seedream-4-1k-battle-6": {
+      "session_id": "33da1171-b842-405a-a5ef-1932a0806689",
+      "message_id": "be73f936-dc95-4166-93d6-d670fea05d3a",
+      "type": "image",
+      "mode": "battle",
+      "battle_target": "B"
+    },
+  "seedream-4-1k-battle-7": {
+      "session_id": "656005e6-288b-404e-9b97-3c4a567d6441",
+      "message_id": "cb94a3fb-df0a-4bfa-a629-6527071f87e8",
+      "type": "image",
+      "mode": "battle",
+      "battle_target": "B"
+    },
+  "hunyuan-image-2.1": {
+      "session_id": "129e9c6f-2334-4e3e-8fa6-58aeea3631ac",
+      "message_id": "cc3e4bf9-1258-437f-aa3d-f09ae194010a",
+      "type": "image",
+      "mode": "direct_chat"
+    },
+  "gemini-2.5-flash-image-preview (nano-banana)": {
+      "session_id": "5e9ada48-7f20-473b-8059-3254590656e9",
+      "message_id": "2bddfe17-3520-4ed8-9f52-411ee6477ab2",
+      "type": "image",
+      "mode": "direct_chat"
+    },
+  "imagen-4.0-generate-preview-06-06": {
+      "session_id": "d7968e76-204f-48ec-9809-d0f1a631023a",
+      "message_id": "5133d867-ff0f-4d22-9887-c76d54a820ad",
+      "type": "image",
+      "mode": "direct_chat"
+    },
+  "flux-1-kontext-dev": {
+      "session_id": "10c4d640-eb08-468c-975c-d82f9694962b",
+      "message_id": "cb99e356-1176-4aaf-a95a-7100d4d105ce",
+      "type": "image",
+      "mode": "direct_chat"
+    },
+  "seedream-4-2k-direct_chat-1": {
+      "session_id": "754d93b7-85e0-432d-aea2-1963821b691b",
+      "message_id": "e5a457e4-3cd7-458d-9e81-e09617016091",
+      "type": "image",
+      "mode": "direct_chat"
+    },
+  "seedream-4-2k-direct_chat-2": {
+      "session_id": "3c7a603e-41b4-44f4-8c65-bd0d26491ce3",
+      "message_id": "2c49229b-c612-4fa5-a914-c8df6bd9c1fa",
+      "type": "image",
+      "mode": "direct_chat"
+    },
+  "seedream-4-2k-direct_chat-3": {
+      "session_id": "3b19aed5-74ac-41fe-9429-8e999a08f487",
+      "message_id": "9cb0cac3-e8a0-43b4-89ca-73dd349a4db2",
+      "type": "image",
+      "mode": "direct_chat"
+    },
+  "seedream-4-2k-direct_chat-4": {
+      "session_id": "6c7311ed-6612-4721-ba0d-a8bc01bc5c83",
+      "message_id": "4c9b3615-f22e-4412-a2a6-5af03db0ddf7",
+      "type": "image",
+      "mode": "direct_chat"
+    },
+  "seedream-4-2k-direct_chat-5": {
+      "session_id": "769af84e-5ed6-4860-9d0a-26ea524acc6c",
+      "message_id": "0fc59b07-843a-4b34-85f7-e6d30e72e315",
+      "type": "image",
+      "mode": "direct_chat"
+    },
+  "seedream-4-2k-direct_chat-6": {
+      "session_id": "1ff44421-263c-4d06-b0cd-6c71f4b8e795",
+      "message_id": "1d33f818-e7fa-4964-b1a6-4763097732bd",
+      "type": "image",
+      "mode": "direct_chat"
+    },
+  "seedream-4-2k-direct_chat-7": {
+      "session_id": "aebd9302-5469-4373-894f-16a293baff41",
+      "message_id": "bc4472cc-c592-4fcc-90e5-5143fbf95c73",
+      "type": "image",
+      "mode": "direct_chat"
+    },
+  "seedream-4-2k-direct_chat-8": {
+      "session_id": "103e81ff-31d9-4a2b-a00a-0f97022ca154",
+      "message_id": "cdbf51cd-3371-486a-9290-635dcc1b52d0",
+      "type": "image",
+      "mode": "direct_chat"
+    },
+  "seedream-4-2k-direct_chat-9": {
+      "session_id": "413af099-c53e-4ed2-b99c-5208e6118646",
+      "message_id": "0320113c-ebcb-4456-8f37-fe6f790d69d0",
+      "type": "image",
+      "mode": "direct_chat"
+    },
+  "seedream-4-2k-direct_chat-10": {
+      "session_id": "5e0d46db-fba8-4815-a81c-d8fdffa1d9cc",
+      "message_id": "ccd8b6c3-f0c1-406b-81d8-40bb7312ee14",
+      "type": "image",
+      "mode": "direct_chat"
+    },
+  "seedream-4-2k-direct_chat-11": {
+      "session_id": "8240e5e1-22b3-40a3-b902-57c67c1bc9f7",
+      "message_id": "f33dd65d-1d4b-42b7-abf1-793ac0800022",
+      "type": "image",
+      "mode": "direct_chat"
+    },
+  "seedream-4-2k-direct_chat-12": {
+      "session_id": "f22263ad-3f84-4fff-b7e1-3f3a8186b908",
+      "message_id": "a344cbaa-5fad-405b-960e-ee3a26ee2bbf",
+      "type": "image",
+      "mode": "direct_chat"
+    },
+  "seedream-4-2k-direct_chat-13": {
+      "session_id": "a743ee49-e927-472e-ad89-ffab4f4ea52d",
+      "message_id": "058666b1-b702-4133-aacd-762757ebe7a6",
+      "type": "image",
+      "mode": "direct_chat"
+    },
+  "seedream-4-2k-direct_chat-14": {
+      "session_id": "939c779d-877a-4415-9586-f250b92d3419",
+      "message_id": "35b89fce-4977-46a0-945a-2e72dca6a4a9",
+      "type": "image",
+      "mode": "direct_chat"
+    },
+  "seedream-4-2k-direct_chat-15": {
+      "session_id": "3ac46adf-41bc-465f-9152-254779bc2d38",
+      "message_id": "dbdbcf8f-51d6-4334-976f-3f6e69044617",
+      "type": "image",
+      "mode": "direct_chat"
+    },
+  "seedream-4-2k-direct_chat-16": {
+      "session_id": "146fa88e-311b-46f0-9ec7-f90ba520f2aa",
+      "message_id": "7879533e-c072-41b5-b6f4-abfac530710e",
+      "type": "image",
+      "mode": "direct_chat"
+    },
+  "seedream-4-2k-direct_chat-17": {
+      "session_id": "ccd13056-3df0-45c3-aada-38d40d95633d",
+      "message_id": "384d96e6-9188-42de-9d74-697d64312c52",
+      "type": "image",
+      "mode": "direct_chat"
+    },
+  "seedream-4-2k-direct_chat-18": {
+      "session_id": "869600b1-3fba-4c7d-9e5b-0e0c3a0c9cb1",
+      "message_id": "e1f5c996-bdf1-4cb8-bf06-7592fff285ea",
+      "type": "image",
+      "mode": "direct_chat"
+    },
+  "seedream-4-2k-direct_chat-19": {
+      "session_id": "fd7d99bc-9d7a-4cfc-980e-af1702fafc1c",
+      "message_id": "729e658f-f9a5-400e-a83a-2204540c2e74",
+      "type": "image",
+      "mode": "direct_chat"
+    },
+  "seedream-4-2k-direct_chat-20": {
+      "session_id": "9876bd16-bec2-4748-a9ae-92356a24c11a",
+      "message_id": "16165662-b9e8-4670-b130-8ab407589471",
+      "type": "image",
+      "mode": "direct_chat"
+    },
+  "recraft-v3": {
+      "session_id": "8b6af9a9-e0ff-46d0-95f5-5aaae761500e",
+      "message_id": "3e60e4ae-e30b-4789-8842-af7d9d59919d",
+      "type": "image",
+      "mode": "direct_chat"
+    },
+  "photon": {
+      "session_id": "e65b27f2-5b1d-4de9-9add-1264ddaaa2ba",
+      "message_id": "2e5c3922-10d0-4693-8ffd-a6e56b36c49d",
+      "type": "image",
+      "mode": "direct_chat"
+    },
+  "dall-e-3": {
+      "session_id": "4531ab45-139f-4359-9b28-d7cece056726",
+      "message_id": "44dca748-0c56-4e0c-902b-4ee8d88319ed",
+      "type": "image",
+      "mode": "direct_chat"
+    },
+  "qwen-image-edit": {
+      "session_id": "771cd306-9fef-4f11-85f0-aa7caabb4e59",
+      "message_id": "1b9b9dff-e066-4c2b-b09a-b87df2e56876",
+      "type": "image",
+      "mode": "direct_chat"
+    },
+  "seedream-3": {
+      "session_id": "c473ac6f-165f-4c63-b2f8-f5a6bf846f8a",
+      "message_id": "b266f3d1-db36-43ef-b47d-91e276ec4287",
+      "type": "image",
+      "mode": "direct_chat"
+    },
+  "ideogram-v3-quality": {
+      "session_id": "003454c9-dc83-48b1-a2da-539b02eed2e7",
+      "message_id": "39c8e283-9b0f-4add-a711-682d53ae1f00",
+      "type": "image",
+      "mode": "direct_chat"
+    },
+  "qwen-image-prompt-extend": {
+      "session_id": "c2ba1060-b097-4f95-8aff-3e00cf26ca50",
+      "message_id": "eaf17e0c-7e89-462a-b65f-528a331c94d6",
+      "type": "image",
+      "mode": "direct_chat"
+    },
+  "imagen-4.0-ultra-generate-preview-06-06": {
+      "session_id": "4cd48724-81ac-49bb-aebb-8bc8f39a488b",
+      "message_id": "03e203da-18dc-486e-898e-ea996f07b9e0",
+      "type": "image",
+      "mode": "direct_chat"
+    },
+  "flux-1-kontext-pro": {
+      "session_id": "1c698ca9-f148-4acc-bc0e-864e632e70a6",
+      "message_id": "8b09411c-cf66-4e1e-be79-dcd3d1af5315",
+      "type": "image",
+      "mode": "direct_chat"
+    },
+  "gpt-image-1": {
+      "session_id": "700c0b1b-0fdd-4256-ad6e-9e64756b6e8e",
+      "message_id": "6136409f-0aa2-473c-b002-3c4cab7b88e7",
+      "type": "image",
+      "mode": "direct_chat"
+    },
+  "lucid-origin": {
+      "session_id": "e7762f03-44b2-40fd-a865-fb203f922b72",
+      "message_id": "0e18aa53-780b-4288-b89b-18e99a05e56b",
+      "type": "image",
+      "mode": "direct_chat"
+    },
+  "longcat-flash-chat": {
+      "session_id": "0df0c855-2d43-4fa9-98fc-8ff17f147e02",
+      "message_id": "b21fff6e-487c-4def-a7f8-319bfb4b22ec",
+      "mode": "direct_chat"
+    },
+  "qwen3-next-80b-a3b-instruct": {
+      "session_id": "1d6744df-c874-497e-b93c-f87710c10f3d",
+      "message_id": "ff36d429-2814-48d7-9805-0721e8f9eb04",
+      "mode": "direct_chat"
+    },
+  "qwen3-next-80b-a3b-thinking": {
+      "session_id": "67351e33-d911-4c66-94c6-15cde51ecd4a",
+      "message_id": "34fdf102-81ae-4762-a338-1e500529771a",
+      "mode": "direct_chat"
+    },
+  "doubao": {
+      "session_id": "8ac1aba9-f8f0-4543-82fa-7206598531cb",
+      "message_id": "11a74c8b-fa14-471a-991c-ec104651a459",
+      "mode": "direct_chat"
+    },
+  "gemini-2.5-pro-grounding": {
+      "session_id": "06bc4d90-1dc0-4568-9c9e-485dbe7106d3",
+      "message_id": "b10c8aee-6acc-4f2e-9a5d-c24406c73587",
+      "type": "search",
+      "mode": "direct_chat"
+    },
+  "claude-opus-4-search": {
+      "session_id": "6f263b6a-3b7c-4a49-8fdc-aa0ed9b0b1b4",
+      "message_id": "c88b2fa1-4534-4914-b8cf-d3897a7b82ee",
+      "type": "search",
+      "mode": "direct_chat"
+    },
+  "o3-search": {
+      "session_id": "c3a5b14c-9380-4e71-b732-fa013ab903cc",
+      "message_id": "3d0870bf-1332-4b17-984d-2dca994a73cf",
+      "type": "search",
+      "mode": "direct_chat"
+    },
+  "grok-4-search": {
+      "session_id": "48cc9c7c-4558-470e-b51f-b3b360359bcb",
+      "message_id": "40e5f377-3e3c-420e-b14b-54c3a033b04c",
+      "type": "search",
+      "mode": "direct_chat"
+    },
+  "grok-4-fast-search": {
+      "session_id": "e10410d5-40f1-4f1d-b56e-911dc29d78a1",
+      "message_id": "268fe45f-c980-4ccc-9d6d-b7e489164f1f",
+      "mode": "direct_chat",
+      "type": "search"
+  },
+  "diffbot-small-xl": {
+      "session_id": "b9b0bf46-5ea1-47f5-80de-d5dd60d992bb",
+      "message_id": "a61b9e68-c537-494c-9415-964d15be9c7e",
+      "type": "search",
+      "mode": "direct_chat"
+    },
+  "claude-opus-4-1-search": {
+      "session_id": "df288789-f1cd-4cc7-8d8a-609b2d546e55",
+      "message_id": "a78659ac-95f0-4ab1-9810-6cd8a89d4dc5",
+      "type": "search",
+      "mode": "direct_chat"
+    },
+  "gpt-5-search": {
+      "session_id": "5bc695ab-a084-418e-8565-339f5f1e96cb",
+      "message_id": "751a772e-7f04-475d-95a0-5d732089b605",
+      "type": "search",
+      "mode": "direct_chat"
+    },
+    "menlo": {
+      "session_id": "5c14d2f9-5222-42bf-bce3-2bc6d72ae77c",
+      "message_id": "dd09f30d-770f-4b85-acba-a79b8b30a80c",
+      "mode": "battle",
+      "type": "search",
+      "battle_target": "A"
+    },
+  "oceanstone": {
+      "session_id": "2f41d391-eb02-4f1f-ac47-1ab9dbc054b4",
+      "message_id": "7ca58149-332d-473d-98d1-e88fa092ad9a",
+      "mode": "battle",
+      "battle_target": "A"
+    },
+  "oceanstone1": {
+      "session_id": "27c7b2b4-3ae9-4d01-91d4-21430111e8e7",
+      "message_id": "3c49ee9d-96d1-409a-91eb-f6cfbf3a45bc",
+      "mode": "battle",
+      "battle_target": "B"
+    },
+  "oceanstone2": {
+      "session_id": "91014fb8-2fec-47b4-9c7a-84ba309e0130",
+      "message_id": "16f1a8c2-b996-4e31-8c4f-63b31c22756f",
+      "mode": "battle",
+      "battle_target": "B"
+    },
+  "oceanreef": {
+      "session_id": "48aceb7a-adb3-4882-9d3a-7611be489fc9",
+      "message_id": "df51eb2c-3fc5-4aa0-b794-a9d85dab22b7",
+      "mode": "battle",
+      "battle_target": "B"
+    },
+  "oceanreef1": {
+      "session_id": "a1764674-803d-4f15-9ae1-0416393f7ca7",
+      "message_id": "c508872b-9828-4fd8-80e5-6708e0275d25",
+      "mode": "battle",
+      "battle_target": "B"
+    },
+  "oceanreef2": {
+      "session_id": "4f53e1ba-ef3b-4c48-9c1c-f33982aba518",
+      "message_id": "9e30975d-91f9-4832-9468-446fc1d3a25c",
+      "mode": "battle",
+      "battle_target": "B"
+    }
+}
+
