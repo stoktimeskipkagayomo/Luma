@@ -279,7 +279,7 @@ def check_and_display_announcement():
                 logger.error(f"删除公告文件 '{announcement_file}' 失败: {e}")
 
 # --- 更新检查 ---
-GITHUB_REPO = "Lianues/LMArenaBridge"
+GITHUB_REPO = "zhongruichen/LMArenaBridge-mogai"
 
 def download_and_extract_update(version):
     """下载并解压最新版本到临时文件夹。"""
@@ -288,7 +288,7 @@ def download_and_extract_update(version):
         os.makedirs(update_dir)
 
     try:
-        zip_url = f"https://github.com/{GITHUB_REPO}/archive/refs/heads/main.zip"
+        zip_url = f"https://github.com/{GITHUB_REPO}/archive/refs/heads/mogai-version.zip"
         logger.info(f"正在从 {zip_url} 下载新版本...")
         response = requests.get(zip_url, timeout=60)
         response.raise_for_status()
@@ -320,7 +320,7 @@ def check_for_updates():
     logger.info(f"当前版本: {current_version}。正在从 GitHub 检查更新...")
 
     try:
-        config_url = f"https://raw.githubusercontent.com/{GITHUB_REPO}/main/config.jsonc"
+        config_url = f"https://raw.githubusercontent.com/{GITHUB_REPO}/mogai-version/config.jsonc"
         response = requests.get(config_url, timeout=10)
         response.raise_for_status()
 
