@@ -348,18 +348,185 @@
 
         /* Responsive */
         @media (max-width: 768px) {
+            .container {
+                padding: 12px;
+            }
+
             .stats-grid {
                 grid-template-columns: 1fr;
+                gap: 12px;
+            }
+            
+            .stat-card {
+                padding: 16px;
+            }
+
+            .stat-value {
+                font-size: 24px;
             }
             
             .header {
                 flex-direction: column;
-                gap: 16px;
+                gap: 12px;
                 text-align: center;
+                padding: 16px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .header-right {
+                flex-direction: column;
+                width: 100%;
+            }
+
+            .btn {
+                width: 100%;
+                padding: 10px 16px;
             }
             
+            .card {
+                padding: 16px;
+            }
+
+            .card-header {
+                flex-direction: column;
+                gap: 12px;
+                align-items: stretch;
+            }
+
+            .card-header h2 {
+                font-size: 18px;
+            }
+
+            /* Mobile-friendly tables */
             .table-container {
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+            }
+
+            table {
                 font-size: 12px;
+                min-width: 600px;
+            }
+
+            th, td {
+                padding: 8px 6px;
+                white-space: nowrap;
+            }
+
+            .token-value {
+                font-size: 10px;
+                padding: 2px 6px;
+            }
+
+            .badge {
+                font-size: 10px;
+                padding: 2px 8px;
+            }
+
+            .action-buttons {
+                flex-direction: column;
+                gap: 4px;
+            }
+
+            .btn-small {
+                width: 100%;
+                padding: 6px 8px;
+                font-size: 11px;
+            }
+
+            /* Modal improvements for mobile */
+            .modal-content {
+                width: 95%;
+                padding: 20px;
+                margin: 10px;
+            }
+
+            .modal-header h2 {
+                font-size: 20px;
+            }
+
+            .form-group input,
+            .form-group textarea {
+                font-size: 16px; /* Prevents zoom on iOS */
+            }
+
+            .modal-actions {
+                flex-direction: column;
+            }
+
+            .modal-actions .btn {
+                width: 100%;
+            }
+
+            /* Geographic charts on mobile */
+            .card:has(#countryChart) > div > div {
+                grid-template-columns: 1fr !important;
+            }
+
+            #countryChart, #cityChart {
+                max-height: 300px !important;
+            }
+        }
+
+        /* Extra small devices */
+        @media (max-width: 480px) {
+            .header h1 {
+                font-size: 18px;
+            }
+
+            .stat-card h3 {
+                font-size: 12px;
+            }
+
+            .stat-value {
+                font-size: 20px;
+            }
+
+            table {
+                font-size: 11px;
+                min-width: 500px;
+            }
+
+            th, td {
+                padding: 6px 4px;
+            }
+
+            .card-header h2 {
+                font-size: 16px;
+            }
+
+            .empty-state {
+                padding: 24px 12px;
+            }
+
+            .empty-state-icon {
+                font-size: 32px;
+            }
+        }
+
+        /* Landscape mobile optimization */
+        @media (max-width: 768px) and (orientation: landscape) {
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        /* Touch-friendly improvements */
+        @media (hover: none) and (pointer: coarse) {
+            .btn, .token-value, tr {
+                min-height: 44px; /* Apple's recommended touch target size */
+            }
+
+            .btn-small {
+                min-height: 36px;
+            }
+
+            /* Larger tap targets for table rows */
+            td {
+                padding: 12px 8px;
             }
         }
     </style>

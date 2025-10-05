@@ -280,14 +280,159 @@
             border-bottom: none;
         }
 
+        /* Responsive Design */
         @media (max-width: 768px) {
+            .container {
+                padding: 12px;
+            }
+
+            .header {
+                padding: 16px;
+            }
+
+            .header h1 {
+                font-size: 22px;
+            }
+
+            .header p {
+                font-size: 13px;
+            }
+
+            .token-input-card {
+                padding: 20px;
+            }
+
+            .token-input-card h2 {
+                font-size: 18px;
+            }
+
             .stats-grid {
                 grid-template-columns: 1fr;
+                gap: 12px;
+            }
+
+            .stat-card {
+                padding: 16px;
+            }
+
+            .stat-value {
+                font-size: 24px;
             }
             
             .token-input-form {
                 flex-direction: column;
             }
+
+            .btn {
+                width: 100%;
+                padding: 14px 24px;
+            }
+
+            .token-input {
+                font-size: 16px; /* Prevents zoom on iOS */
+            }
+
+            .card {
+                padding: 16px;
+            }
+
+            .card-header h2 {
+                font-size: 18px;
+            }
+
+            /* Mobile-friendly tables */
+            table {
+                font-size: 12px;
+                min-width: 600px;
+            }
+
+            th, td {
+                padding: 8px 6px;
+                white-space: nowrap;
+            }
+
+            .badge {
+                font-size: 10px;
+                padding: 2px 8px;
+            }
+
+            /* Token info grid on mobile */
+            .card > div[style*="grid-template-columns"] {
+                grid-template-columns: 1fr !important;
+                gap: 12px !important;
+            }
+
+            .platform-item {
+                font-size: 13px;
+            }
+
+            .empty-state {
+                padding: 24px 12px;
+            }
+
+            .empty-state-icon {
+                font-size: 32px;
+            }
+        }
+
+        /* Extra small devices */
+        @media (max-width: 480px) {
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .token-input-card h2 {
+                font-size: 16px;
+            }
+
+            .stat-card h3 {
+                font-size: 12px;
+            }
+
+            .stat-value {
+                font-size: 20px;
+            }
+
+            table {
+                font-size: 11px;
+                min-width: 500px;
+            }
+
+            th, td {
+                padding: 6px 4px;
+            }
+
+            .card-header h2 {
+                font-size: 16px;
+            }
+        }
+
+        /* Landscape mobile optimization */
+        @media (max-width: 768px) and (orientation: landscape) {
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        /* Touch-friendly improvements */
+        @media (hover: none) and (pointer: coarse) {
+            .btn, tr {
+                min-height: 44px; /* Apple's recommended touch target size */
+            }
+
+            td {
+                padding: 12px 8px;
+            }
+
+            .platform-item {
+                padding: 12px 0;
+            }
+        }
+
+        /* Table container with smooth scrolling */
+        .table-container {
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
         }
     </style>
 </head>
