@@ -669,14 +669,29 @@
         }
 
         function formatDate(dateString) {
-            // Parse the date string - handle both ISO format and Unix timestamps
+            if (!dateString) return 'Never';
+            
+            // Parse the date string - handle multiple formats
             let date;
+            
             if (typeof dateString === 'number') {
-                // Unix timestamp
+                // Unix timestamp (seconds)
                 date = new Date(dateString * 1000);
-            } else {
-                // ISO string or other format
+            } else if (typeof dateString === 'string') {
+                // SQLite timestamp format: "YYYY-MM-DD HH:MM:SS"
+                // Replace space with 'T' and add 'Z' for UTC if no timezone info
+                if (dateString.includes(' ') && !dateString.includes('T')) {
+                    // SQLite format - treat as UTC
+                    dateString = dateString.replace(' ', 'T') + 'Z';
+                }
                 date = new Date(dateString);
+            } else {
+                return 'Invalid date';
+            }
+            
+            // Check if date is valid
+            if (isNaN(date.getTime())) {
+                return 'Invalid date';
             }
             
             // Get current time
