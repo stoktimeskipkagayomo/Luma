@@ -1961,37 +1961,26 @@ async def stream_generator(request_id: str, model: str):
     if request_id in request_metadata:
         metadata = request_metadata[request_id]
         try:
-            # Get token info from the original request context
-            auth_header = request.headers.get('Authorization', '')
-            if auth_header.startswith('Bearer '):
-                provided_token = auth_header.split(' ')[1]
-                token_info = await token_manager.get_token_by_value(provided_token)
-                
-                if token_info:
-                    # Get client info
-                    client_ip = request.client.host if request.client else "Unknown"
-                    user_agent = request.headers.get('User-Agent', 'Unknown')
-                    
-                    # Get geo and platform info
-                    country, city = await geo_platform_service.get_location(client_ip)
-                    platform = geo_platform_service.detect_platform(user_agent)
-                    
-                    # Log the usage
-                    await token_manager.log_usage(
-                        token_id=token_info['id'],
-                        ip_address=client_ip,
-                        user_agent=user_agent,
-                        model=metadata.get('model_name', 'unknown'),
-                        endpoint='/v1/chat/completions',
-                        success=True,
-                        input_tokens=input_tokens,
-                        output_tokens=len(full_response) // 4,
-                        duration=(time.time() - stream_start_time) if 'stream_start_time' in locals() else None,
-                        country=country,
-                        city=city,
-                        platform=platform
-                    )
-                    logger.debug(f"Token usage logged for request {request_id[:8]}")
+            # Get all info from stored metadata
+            token_info = metadata.get('token_info')
+            
+            if token_info:
+                # Log the usage using pre-stored metadata
+                await token_manager.log_usage(
+                    token_id=token_info['id'],
+                    ip_address=metadata.get('client_ip', 'Unknown'),
+                    user_agent=metadata.get('user_agent', 'Unknown'),
+                    model=metadata.get('model_name', 'unknown'),
+                    endpoint='/v1/chat/completions',
+                    success=True,
+                    input_tokens=input_tokens,
+                    output_tokens=len(full_response) // 4,
+                    duration=None,  # Duration will be calculated from timestamp
+                    country=metadata.get('country'),
+                    city=metadata.get('city'),
+                    platform=metadata.get('platform')
+                )
+                logger.debug(f"Token usage logged for request {request_id[:8]}")
         except Exception as e:
             logger.error(f"Failed to log token usage for request {request_id[:8]}: {e}")
     
@@ -2120,6 +2109,33 @@ async def non_stream_response(request_id: str, model: str):
         input_tokens=input_tokens,
         output_tokens=len(full_response_for_monitoring) // 4
     )
+    
+    # Log token usage to database (non-streaming)
+    if request_id in request_metadata:
+        metadata = request_metadata[request_id]
+        try:
+            # Get all info from stored metadata
+            token_info = metadata.get('token_info')
+            
+            if token_info:
+                # Log the usage using pre-stored metadata
+                await token_manager.log_usage(
+                    token_id=token_info['id'],
+                    ip_address=metadata.get('client_ip', 'Unknown'),
+                    user_agent=metadata.get('user_agent', 'Unknown'),
+                    model=metadata.get('model_name', 'unknown'),
+                    endpoint='/v1/chat/completions',
+                    success=True,
+                    input_tokens=input_tokens,
+                    output_tokens=len(full_response_for_monitoring) // 4,
+                    duration=None,  # Duration will be calculated from timestamp
+                    country=metadata.get('country'),
+                    city=metadata.get('city'),
+                    platform=metadata.get('platform')
+                )
+                logger.debug(f"Token usage logged for non-stream request {request_id[:8]}")
+        except Exception as e:
+            logger.error(f"Failed to log token usage for non-stream request {request_id[:8]}: {e}")
     
     return Response(content=json.dumps(response_data, ensure_ascii=False), media_type="application/json")
 
