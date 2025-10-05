@@ -973,14 +973,45 @@
         }
 
         function formatDate(dateString) {
-            const date = new Date(dateString);
-            const now = new Date();
-            const diff = now - date;
+            if (!dateString) return 'Never';
             
+            // Parse the date string - handle multiple formats
+            let date;
+            
+            if (typeof dateString === 'number') {
+                // Unix timestamp (seconds)
+                date = new Date(dateString * 1000);
+            } else if (typeof dateString === 'string') {
+                // SQLite timestamp format: "YYYY-MM-DD HH:MM:SS"
+                // Replace space with 'T' and add 'Z' for UTC if no timezone info
+                if (dateString.includes(' ') && !dateString.includes('T')) {
+                    // SQLite format - treat as UTC
+                    dateString = dateString.replace(' ', 'T') + 'Z';
+                }
+                date = new Date(dateString);
+            } else {
+                return 'Invalid date';
+            }
+            
+            // Check if date is valid
+            if (isNaN(date.getTime())) {
+                return 'Invalid date';
+            }
+            
+            // Get current time
+            const now = new Date();
+            
+            // Calculate difference in milliseconds
+            const diff = now.getTime() - date.getTime();
+            
+            // Return relative time
+            if (diff < 0) return 'Just now'; // Future date (clock skew)
             if (diff < 60000) return 'Just now';
             if (diff < 3600000) return Math.floor(diff / 60000) + 'm ago';
             if (diff < 86400000) return Math.floor(diff / 3600000) + 'h ago';
+            if (diff < 604800000) return Math.floor(diff / 86400000) + 'd ago';
             
+            // For older dates, show the actual date
             return date.toLocaleDateString() + ' ' + date.toLocaleTimeString();
         }
 
