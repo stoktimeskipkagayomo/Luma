@@ -669,14 +669,30 @@
         }
 
         function formatDate(dateString) {
-            const date = new Date(dateString);
-            const now = new Date();
-            const diff = now - date;
+            // Parse the date string - handle both ISO format and Unix timestamps
+            let date;
+            if (typeof dateString === 'number') {
+                // Unix timestamp
+                date = new Date(dateString * 1000);
+            } else {
+                // ISO string or other format
+                date = new Date(dateString);
+            }
             
+            // Get current time
+            const now = new Date();
+            
+            // Calculate difference in milliseconds
+            const diff = now.getTime() - date.getTime();
+            
+            // Return relative time
+            if (diff < 0) return 'Just now'; // Future date (clock skew)
             if (diff < 60000) return 'Just now';
             if (diff < 3600000) return Math.floor(diff / 60000) + 'm ago';
             if (diff < 86400000) return Math.floor(diff / 3600000) + 'h ago';
+            if (diff < 604800000) return Math.floor(diff / 86400000) + 'd ago';
             
+            // For older dates, show the actual date
             return date.toLocaleDateString() + ' ' + date.toLocaleTimeString();
         }
 
