@@ -1958,13 +1958,13 @@ async def stream_generator(request_id: str, model: str):
     })
     
     # Log token usage to database
-    if request_id in request_metadata:
-        metadata = request_metadata[request_id]
-        try:
-            # Get all info from stored metadata
+    try:
+        if request_id in request_metadata:
+            metadata = request_metadata[request_id]
             token_info = metadata.get('token_info')
             
             if token_info:
+                logger.info(f"[TOKEN_LOG] Logging usage for request {request_id[:8]}")
                 # Log the usage using pre-stored metadata
                 await token_manager.log_usage(
                     token_id=token_info['id'],
@@ -1980,9 +1980,13 @@ async def stream_generator(request_id: str, model: str):
                     city=metadata.get('city'),
                     platform=metadata.get('platform')
                 )
-                logger.debug(f"Token usage logged for request {request_id[:8]}")
-        except Exception as e:
-            logger.error(f"Failed to log token usage for request {request_id[:8]}: {e}")
+                logger.info(f"[TOKEN_LOG] ✅ Token usage logged successfully for request {request_id[:8]}")
+            else:
+                logger.warning(f"[TOKEN_LOG] ⚠️ No token_info in metadata for request {request_id[:8]}")
+        else:
+            logger.warning(f"[TOKEN_LOG] ⚠️ Request {request_id[:8]} not found in request_metadata")
+    except Exception as e:
+        logger.error(f"[TOKEN_LOG] ❌ Failed to log token usage for request {request_id[:8]}: {e}", exc_info=True)
     
 
 async def non_stream_response(request_id: str, model: str):
@@ -2111,13 +2115,13 @@ async def non_stream_response(request_id: str, model: str):
     )
     
     # Log token usage to database (non-streaming)
-    if request_id in request_metadata:
-        metadata = request_metadata[request_id]
-        try:
-            # Get all info from stored metadata
+    try:
+        if request_id in request_metadata:
+            metadata = request_metadata[request_id]
             token_info = metadata.get('token_info')
             
             if token_info:
+                logger.info(f"[TOKEN_LOG] Logging usage for non-stream request {request_id[:8]}")
                 # Log the usage using pre-stored metadata
                 await token_manager.log_usage(
                     token_id=token_info['id'],
@@ -2133,9 +2137,13 @@ async def non_stream_response(request_id: str, model: str):
                     city=metadata.get('city'),
                     platform=metadata.get('platform')
                 )
-                logger.debug(f"Token usage logged for non-stream request {request_id[:8]}")
-        except Exception as e:
-            logger.error(f"Failed to log token usage for non-stream request {request_id[:8]}: {e}")
+                logger.info(f"[TOKEN_LOG] ✅ Token usage logged successfully for non-stream request {request_id[:8]}")
+            else:
+                logger.warning(f"[TOKEN_LOG] ⚠️ No token_info in metadata for non-stream request {request_id[:8]}")
+        else:
+            logger.warning(f"[TOKEN_LOG] ⚠️ Non-stream request {request_id[:8]} not found in request_metadata")
+    except Exception as e:
+        logger.error(f"[TOKEN_LOG] ❌ Failed to log token usage for non-stream request {request_id[:8]}: {e}", exc_info=True)
     
     return Response(content=json.dumps(response_data, ensure_ascii=False), media_type="application/json")
 
