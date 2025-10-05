@@ -1777,10 +1777,8 @@ async def _process_lmarena_stream(request_id: str):
             del response_channels[request_id]
             logger.info(f"PROCESSOR [ID: {request_id[:8]}]: 响应通道已清理。")
         
-        # 清理请求元数据（修复内存泄漏）
-        if request_id in request_metadata:
-            del request_metadata[request_id]
-            logger.debug(f"PROCESSOR [ID: {request_id[:8]}]: 请求元数据已清理。")
+        # 注意：不在这里清理request_metadata，因为token logging需要用到它
+        # request_metadata将在stream_generator和non_stream_response中清理
 
 async def stream_generator(request_id: str, model: str):
     """将内部事件流格式化为 OpenAI SSE 响应。"""
@@ -1987,6 +1985,11 @@ async def stream_generator(request_id: str, model: str):
             logger.warning(f"[TOKEN_LOG] ⚠️ Request {request_id[:8]} not found in request_metadata")
     except Exception as e:
         logger.error(f"[TOKEN_LOG] ❌ Failed to log token usage for request {request_id[:8]}: {e}", exc_info=True)
+    finally:
+        # 清理请求元数据（在token logging之后）
+        if request_id in request_metadata:
+            del request_metadata[request_id]
+            logger.debug(f"STREAMER [ID: {request_id[:8]}]: 请求元数据已清理。")
     
 
 async def non_stream_response(request_id: str, model: str):
