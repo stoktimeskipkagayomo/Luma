@@ -1957,25 +1957,44 @@ async def stream_generator(request_id: str, model: str):
         "success": True
     })
     
-    # Log token usage to database (from chat_completions context)
-    if 'token_info' in locals() and 'client_ip' in locals():
+    # Log token usage to database
+    if request_id in request_metadata:
+        metadata = request_metadata[request_id]
         try:
-            await token_manager.log_usage(
-                token_id=token_info['id'],
-                ip_address=client_ip,
-                user_agent=user_agent if 'user_agent' in locals() else 'Unknown',
-                model=model if 'model' in locals() else 'unknown',
-                endpoint='/v1/chat/completions',
-                success=True,
-                input_tokens=input_tokens,
-                output_tokens=len(full_response) // 4,
-                duration=(time.time() - stream_start_time) if 'stream_start_time' in locals() else None,
-                country=country if 'country' in locals() else None,
-                city=city if 'city' in locals() else None,
-                platform=platform if 'platform' in locals() else None
-            )
+            # Get token info from the original request context
+            auth_header = request.headers.get('Authorization', '')
+            if auth_header.startswith('Bearer '):
+                provided_token = auth_header.split(' ')[1]
+                token_info = await token_manager.get_token_by_value(provided_token)
+                
+                if token_info:
+                    # Get client info
+                    client_ip = request.client.host if request.client else "Unknown"
+                    user_agent = request.headers.get('User-Agent', 'Unknown')
+                    
+                    # Get geo and platform info
+                    country, city = await geo_platform_service.get_location(client_ip)
+                    platform = geo_platform_service.detect_platform(user_agent)
+                    
+                    # Log the usage
+                    await token_manager.log_usage(
+                        token_id=token_info['id'],
+                        ip_address=client_ip,
+                        user_agent=user_agent,
+                        model=metadata.get('model_name', 'unknown'),
+                        endpoint='/v1/chat/completions',
+                        success=True,
+                        input_tokens=input_tokens,
+                        output_tokens=len(full_response) // 4,
+                        duration=(time.time() - stream_start_time) if 'stream_start_time' in locals() else None,
+                        country=country,
+                        city=city,
+                        platform=platform
+                    )
+                    logger.debug(f"Token usage logged for request {request_id[:8]}")
         except Exception as e:
-            logger.error(f"Failed to log token usage: {e}")
+            logger.error(f"Failed to log token usage for request {request_id[:8]}: {e}")
+    
 
 async def non_stream_response(request_id: str, model: str):
     """聚合内部事件流并返回单个 OpenAI JSON 响应。"""
@@ -2612,7 +2631,13 @@ async def chat_completions(request: Request):
         "message_id": message_id,
         "mode_override": mode_override,
         "battle_target_override": battle_target_override,
-        "created_at": datetime.now().isoformat()
+        "created_at": datetime.now().isoformat(),
+        "token_info": token_info,  # 保存token信息用于日志记录
+        "client_ip": client_ip,
+        "user_agent": user_agent,
+        "country": country,
+        "city": city,
+        "platform": platform
     }
     
     logger.info(f"API CALL [ID: {request_id[:8]}]: 已创建响应通道。")

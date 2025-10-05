@@ -530,7 +530,6 @@
                             <tr>
                                 <th>Time</th>
                                 <th>Model</th>
-                                <th>Location</th>
                                 <th>Platform</th>
                                 <th>Status</th>
                             </tr>
@@ -640,7 +639,6 @@
                     <tr>
                         <td>${formatDate(u.timestamp)}</td>
                         <td>${escapeHtml(u.model || '-')}</td>
-                        <td>${escapeHtml(u.country || 'Unknown')}, ${escapeHtml(u.city || 'Unknown')}</td>
                         <td>${escapeHtml(u.platform || 'Unknown')}</td>
                         <td>
                             <span class="badge ${u.success ? 'badge-success' : 'badge-danger'}">
@@ -652,7 +650,7 @@
             } else {
                 recentUsageBody.innerHTML = `
                     <tr>
-                        <td colspan="5" class="empty-state">No usage data yet</td>
+                        <td colspan="4" class="empty-state">No usage data yet</td>
                     </tr>
                 `;
             }
