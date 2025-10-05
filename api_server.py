@@ -35,6 +35,7 @@ from modules.file_uploader import upload_to_file_bed
 from modules.monitoring import monitoring_service, MonitorConfig
 from modules.token_manager import token_manager
 from modules.geo_platform import geo_platform_service
+from modules.logging_system import log_system, LogLevel, LogType
 # 图像自动增强功能已移除（已剥离为独立项目）
 
 import urllib3
@@ -567,12 +568,20 @@ async def lifespan(app: FastAPI):
     # 启动内存监控任务
     asyncio.create_task(memory_monitor())
     
+    # 启动新的日志系统
+    log_system.start()
+    logger.info("✅ 新的异步日志系统已启动")
+    
     yield
     
     # 清理资源
     if aiohttp_session:
         await aiohttp_session.close()
         logger.info("全局aiohttp会话已关闭")
+    
+    # 停止日志系统并刷新所有缓冲
+    await log_system.stop()
+    logger.info("✅ 日志系统已停止并刷新所有缓冲")
     
     logger.info("服务器正在关闭。")
 
