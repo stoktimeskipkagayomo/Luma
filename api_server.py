@@ -1,5 +1,5 @@
 # api_server.py
-# 新一代 LMArena Bridge 后端服务
+# Luma API Backend Service
 
 import asyncio
 import json
@@ -33,6 +33,8 @@ from fastapi.responses import StreamingResponse, JSONResponse, Response, HTMLRes
 # --- 内部模块导入 ---
 from modules.file_uploader import upload_to_file_bed
 from modules.monitoring import monitoring_service, MonitorConfig
+from modules.token_manager import token_manager
+from modules.geo_platform import geo_platform_service
 # 图像自动增强功能已移除（已剥离为独立项目）
 
 import urllib3
@@ -279,7 +281,7 @@ def check_and_display_announcement():
                 logger.error(f"删除公告文件 '{announcement_file}' 失败: {e}")
 
 # --- 更新检查 ---
-GITHUB_REPO = "zhongruichen/LMArenaBridge-mogai"
+GITHUB_REPO = "zhongruichen/LMArenaBridge-mogai"  # Repository name unchanged
 
 def download_and_extract_update(version):
     """下载并解压最新版本到临时文件夹。"""
@@ -1030,8 +1032,8 @@ def format_openai_finish_chunk(model: str, request_id: str, reason: str = 'stop'
     return f"data: {json.dumps(chunk, ensure_ascii=False)}\n\ndata: [DONE]\n\n"
 
 def format_openai_error_chunk(error_message: str, model: str, request_id: str) -> str:
-    """格式化为 OpenAI 错误块。"""
-    content = f"\n\n[LMArena Bridge Error]: {error_message}"
+    """Format as OpenAI error chunk."""
+    content = f"\n\n[Luma API Error]: {error_message}"
     return format_openai_chunk(content, model, request_id)
 
 def format_openai_non_stream_response(content: str, model: str, request_id: str, reason: str = 'stop') -> dict:
@@ -1954,6 +1956,26 @@ async def stream_generator(request_id: str, model: str):
         "request_id": request_id,
         "success": True
     })
+    
+    # Log token usage to database (from chat_completions context)
+    if 'token_info' in locals() and 'client_ip' in locals():
+        try:
+            await token_manager.log_usage(
+                token_id=token_info['id'],
+                ip_address=client_ip,
+                user_agent=user_agent if 'user_agent' in locals() else 'Unknown',
+                model=model if 'model' in locals() else 'unknown',
+                endpoint='/v1/chat/completions',
+                success=True,
+                input_tokens=input_tokens,
+                output_tokens=len(full_response) // 4,
+                duration=(time.time() - stream_start_time) if 'stream_start_time' in locals() else None,
+                country=country if 'country' in locals() else None,
+                city=city if 'city' in locals() else None,
+                platform=platform if 'platform' in locals() else None
+            )
+        except Exception as e:
+            logger.error(f"Failed to log token usage: {e}")
 
 async def non_stream_response(request_id: str, model: str):
     """聚合内部事件流并返回单个 OpenAI JSON 响应。"""
@@ -2004,8 +2026,8 @@ async def non_stream_response(request_id: str, model: str):
 
             error_response = {
                 "error": {
-                    "message": f"[LMArena Bridge Error]: {data}",
-                    "type": "bridge_error",
+                    "message": f"[Luma API Error]: {data}",
+                    "type": "api_error",
                     "code": "attachment_too_large" if status_code == 413 else "processing_error"
                 }
             }
@@ -2320,21 +2342,99 @@ async def update_available_models_endpoint(request: Request):
         )
 
 
+@app.get("/", response_class=HTMLResponse)
+async def root():
+    """返回用户仪表板HTML页面（根路径）"""
+    try:
+        with open('templates/user_dashboard.html', 'r', encoding='utf-8') as f:
+            html_content = f.read()
+        return HTMLResponse(content=html_content)
+    except FileNotFoundError:
+        return HTMLResponse(
+            content="<h1>User Dashboard Not Found</h1><p>Please ensure templates/user_dashboard.html exists.</p>",
+            status_code=404
+        )
+
+@app.get("/user-dashboard", response_class=HTMLResponse)
+async def user_dashboard():
+    """返回用户仪表板HTML页面（备用路径）"""
+    try:
+        with open('templates/user_dashboard.html', 'r', encoding='utf-8') as f:
+            html_content = f.read()
+        return HTMLResponse(content=html_content)
+    except FileNotFoundError:
+        return HTMLResponse(
+            content="<h1>用户仪表板文件未找到</h1><p>请确保 templates/user_dashboard.html 文件存在。</p>",
+            status_code=404
+        )
+
+@app.get("/api/user/token-stats")
+async def get_user_token_stats(token: str):
+    """获取用户token的统计信息（无需认证，通过token本身验证）"""
+    try:
+        # 验证token
+        token_info = await token_manager.get_token_by_value(token)
+        if not token_info:
+            raise HTTPException(status_code=404, detail="Token not found")
+        
+        # 获取统计信息
+        stats = await token_manager.get_token_stats(token_info['id'])
+        recent_usage = await token_manager.get_recent_usage(token_info['id'], limit=50)
+        
+        return {
+            "token_info": token_info,
+            "stats": stats,
+            "recent_usage": recent_usage
+        }
+    except HTTPException:
+        raise
+    except Exception as e:
+        logger.error(f"Error getting user token stats: {e}")
+        raise HTTPException(status_code=500, detail=str(e))
+
 @app.post("/v1/chat/completions")
 async def chat_completions(request: Request):
     """
     处理聊天补全请求。
-    接收 OpenAI 格式的请求，将其转换为 LMArena 格式，
-    通过 WebSocket 发送给油猴脚本，然后流式返回结果。
+    接收 OpenAI 格式的请求,将其转换为 LMArena 格式,
+    通过 WebSocket 发送给油猴脚本,然后流式返回结果。
     """
     global last_activity_time
     last_activity_time = datetime.now() # 更新活动时间
-    logger.info(f"API请求已收到，活动时间已更新为: {last_activity_time.strftime('%Y-%m-%d %H:%M:%S')}")
+    logger.info(f"API请求已收到,活动时间已更新为: {last_activity_time.strftime('%Y-%m-%d %H:%M:%S')}")
 
     try:
         openai_req = await request.json()
     except json.JSONDecodeError:
         raise HTTPException(status_code=400, detail="无效的 JSON 请求体")
+    
+    # --- Token Authentication ---
+    auth_header = request.headers.get('Authorization')
+    if not auth_header or not auth_header.startswith('Bearer '):
+        raise HTTPException(
+            status_code=401,
+            detail="未提供 Token。请在 Authorization 头部中以 'Bearer YOUR_TOKEN' 格式提供。"
+        )
+    
+    provided_token = auth_header.split(' ')[1]
+    
+    # 验证token
+    token_info = await token_manager.validate_token(provided_token)
+    if not token_info:
+        raise HTTPException(
+            status_code=401,
+            detail="提供的 Token 无效或已被禁用。"
+        )
+    
+    # 获取请求的IP和User-Agent
+    client_ip = request.client.host if request.client else "Unknown"
+    user_agent = request.headers.get('User-Agent', 'Unknown')
+    
+    # 获取地理位置和平台信息
+    country, city = await geo_platform_service.get_location(client_ip)
+    platform = geo_platform_service.detect_platform(user_agent)
+    
+    logger.info(f"Token验证成功: {token_info['user_id']} | IP: {client_ip} | 平台: {platform}")
 
     model_name = openai_req.get("model")
     
@@ -2884,7 +2984,7 @@ async def chat_completions(request: Request):
         # 返回一个格式正确的JSON错误响应
         return JSONResponse(
             status_code=500,
-            content={"error": {"message": f"[LMArena Bridge Error] 附件处理失败: {e}", "type": "attachment_error"}}
+            content={"error": {"message": f"[Luma API Error] Attachment processing failed: {e}", "type": "attachment_error"}}
         )
     except Exception as e:
         # 捕获所有其他错误

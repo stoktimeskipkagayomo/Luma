@@ -1,10 +1,58 @@
-/test
-/Debug
-test_openai_request.py
-原始openai格式.txt
-/另
-stress_test.py
-/modules/__pycache__
-test_multi_file_upload.py
-/webdev反代
-test_multimodal_request.py
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual Environment
+venv/
+ENV/
+env/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Project specific
+downloaded_images/
+logs/
+*.log
+update_temp/
+announcement-lmarena.json
+
+# Environment variables
+.env
+
+# Database
+user_tokens.db
+*.db
+*.sqlite
+*.sqlite3
+
+# Temporary files
+*.tmp
+*.bak
+*.cache

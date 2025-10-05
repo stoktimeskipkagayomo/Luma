@@ -136,7 +136,7 @@ async def upload_file(request: UploadRequest, http_request: Request):
 
 @app.get("/")
 def read_root():
-    return {"message": "LMArena Bridge 文件床服务器正在运行。"}
+    return {"message": "Luma API File Server is running."}
 
 # --- 主程序入口 ---
 if __name__ == "__main__":

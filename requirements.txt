@@ -6,3 +6,8 @@ aiohttp
 httpx
 Pillow
 psutil
+aiosqlite
+python-dotenv
+python-jose[cryptography]
+passlib[bcrypt]
+user-agents
