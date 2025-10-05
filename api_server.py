@@ -2326,7 +2326,7 @@ async def get_models():
                     "id": model_name,
                     "object": "model",
                     "created": int(time.time()),
-                    "owned_by": "LMArenaBridge"
+                    "owned_by": "LumaAPI"
                 }
                 for model_name in MODEL_ENDPOINT_MAP.keys()
             ],
@@ -2340,7 +2340,7 @@ async def get_models():
                     "id": model_name,
                     "object": "model",
                     "created": int(time.time()),
-                    "owned_by": "LMArenaBridge"
+                    "owned_by": "LumaAPI"
                 }
                 for model_name in MODEL_NAME_TO_ID_MAP.keys()
             ],
