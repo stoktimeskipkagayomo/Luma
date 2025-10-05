@@ -3117,18 +3117,6 @@ async def monitor_websocket(websocket: WebSocket):
     except WebSocketDisconnect:
         monitoring_service.remove_monitor_client(websocket)
 
-@app.get("/monitor", response_class=HTMLResponse)
-async def monitor_dashboard():
-    """返回监控面板HTML页面"""
-    try:
-        with open('monitor.html', 'r', encoding='utf-8') as f:
-            html_content = f.read()
-        return HTMLResponse(content=html_content)
-    except FileNotFoundError:
-        return HTMLResponse(
-            content="<h1>监控面板文件未找到</h1><p>请确保 monitor.html 文件在正确的位置。</p>",
-            status_code=404
-        )
 
 @app.get("/api/monitor/stats")
 async def get_monitor_stats():
